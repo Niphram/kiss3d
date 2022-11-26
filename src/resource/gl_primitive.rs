@@ -210,9 +210,19 @@ unsafe impl GLPrimitive for Point2<u16> {
     const GLTYPE: u32 = Context::UNSIGNED_SHORT;
 }
 
+unsafe impl GLPrimitive for Point2<u32> {
+    type Element = u32;
+    const GLTYPE: u32 = Context::UNSIGNED_INT;
+}
+
 unsafe impl GLPrimitive for Point3<u16> {
     type Element = u16;
     const GLTYPE: u32 = Context::UNSIGNED_SHORT;
+}
+
+unsafe impl GLPrimitive for Point3<u32> {
+    type Element = u32;
+    const GLTYPE: u32 = Context::UNSIGNED_INT;
 }
 
 /*

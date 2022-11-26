@@ -406,13 +406,13 @@ fn reformat(
     groups: HashMap<String, usize>,
     group2mtl: HashMap<usize, MtlMaterial>,
 ) -> Vec<(String, Mesh, Option<MtlMaterial>)> {
-    let mut vt2id: HashMap<Point3<u16>, u16> = HashMap::new();
-    let mut vertex_ids: Vec<u16> = Vec::new();
+    let mut vt2id: HashMap<Point3<u16>, u32> = HashMap::new();
+    let mut vertex_ids: Vec<u32> = Vec::new();
     let mut resc: Vec<Coord> = Vec::new();
     let mut resn: Option<Vec<Normal>> = normals.as_ref().map(|_| Vec::new());
     let mut resu: Option<Vec<UV>> = uvs.as_ref().map(|_| Vec::new());
-    let mut resfs: Vec<Vec<Point3<u16>>> = Vec::new();
-    let mut allfs: Vec<Point3<u16>> = Vec::new();
+    let mut resfs: Vec<Vec<Point3<u32>>> = Vec::new();
+    let mut allfs: Vec<Point3<u32>> = Vec::new();
     let mut names: Vec<String> = Vec::new();
     let mut mtls: Vec<Option<MtlMaterial>> = Vec::new();
 
@@ -427,7 +427,7 @@ fn reformat(
                     None
                 }
                 None => {
-                    let idx = resc.len() as u16;
+                    let idx = resc.len() as u32;
 
                     resc.push(coords[point.x as usize]);
 
